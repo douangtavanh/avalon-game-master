@@ -349,7 +349,7 @@ function speak (app, percival, mordred, morgana, oberon) {
             <s><emphasis level="strong">Percival close your eyes.</emphasis></s>\
             <break time="2s" />\
             <s><emphasis level = "strong">Everyone open your eyes.</emphasis></s>\
-            <break time="0.5" />\
+            <break time="0.5s" />\
             <s>Enjoy your game.</s>\
             </speak>');
     } else if ((percival === 1) && (mordred === 1) && (morgana === 1) && (oberon === 0)) {
@@ -432,13 +432,13 @@ function speak (app, percival, mordred, morgana, oberon) {
             <break time="1s" />\
             <s><emphasis level="strong">Percival close your eyes.</emphasis></s>\
             <break time="2s" />\
-            <s><emphasis level ="strong">Everyone open your eyes.</emphasis></s>\
-            <break time="0.5" />\
+            <s><emphasis level="strong">Everyone open your eyes.</emphasis></s>\
+            <break time="0.5s" />\
             <s>Enjoy your game.</s>\
             </speak>');
     } else {
         let unsupport = unknownCharacter(app, percival, mordred, morgana, oberon);
-        app.ask(app.buildRichResponse().addSimpleResponse('Sorry! I can\'t set-up with ' + unsupport + ' Please choose difference one.').addSuggestions(['Percival', 'Mordred', 'Percival + Mordred', 'Percival + Mordred + Morgana', 'Percival + Mordred + Morgana + Oberon']));
+        app.ask(app.buildRichResponse().addSimpleResponse('Sorry! I can\'t set-up with' + unsupport + 'Please choose difference one.').addSuggestions(['Percival', 'Mordred', 'Percival + Mordred', 'Percival + Mordred + Morgana', 'Percival + Mordred + Morgana + Oberon']));
     }
 }
 

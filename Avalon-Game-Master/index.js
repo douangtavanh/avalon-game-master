@@ -236,6 +236,7 @@ exports.AvalonBoardgame = functions.https.onRequest((request, response) => {
 });
 
 function speak (app, percival, mordred, morgana, oberon) {
+    console.log('speak');
     if ((percival === 1) && (mordred === 0) && (morgana === 0) && (oberon === 0)) {
         app.tell('<speak>\
             <s>Play with basic set-up Merlin and Assassin with optional character Percival.</s>\
@@ -364,7 +365,7 @@ function speak (app, percival, mordred, morgana, oberon) {
             <break time="1s" />\
             <s><emphasis level="strong">Minions of Mordred extend your thumb.</emphasis></s>\
             <break time="1s" />\
-            <s><emphasis level="strong">Minions of Mordred open your eyes</emphasis><break time="0.5s"/> and look around so that you know all agents of Evil.</s>\
+            <s><emphasis level="strong">Minions of Mordred open your eyes</emphasis><break time="0.5s" /> and look around so that you know all agents of Evil.</s>\
             <break time="1s" />\
             <s>All of you already recgonized each other.</s>\
             <break time="2s" />\
@@ -404,7 +405,7 @@ function speak (app, percival, mordred, morgana, oberon) {
             <break time="0.5s" />\
             <s><emphasis level="strong">Everyone close your eyes.</emphasis></s>\
             <break time="1s" />\
-            <s><emphasis level="strong">Minions of Mordred, not Oberon,</emphasis><break time ="0.5s"/><emphasis level="strong"> extend your thumb.</emphasis></s>\
+            <s><emphasis level="strong">Minions of Mordred, not Oberon,<break time ="0.5s" /> extend your thumb.</emphasis></s>\
             <break time="1s" />\
             <s><emphasis level="strong">Minions of Mordred open your eyes.</emphasis></s>\
             <break time="1s" />\
@@ -438,11 +439,12 @@ function speak (app, percival, mordred, morgana, oberon) {
             </speak>');
     } else {
         let unsupport = unknownCharacter(app, percival, mordred, morgana, oberon);
-        app.ask(app.buildRichResponse().addSimpleResponse('Sorry! I can\'t set-up with' + unsupport + 'Please choose difference one.').addSuggestions(['Percival', 'Mordred', 'Percival + Mordred', 'Percival + Mordred + Morgana', 'Percival + Mordred + Morgana + Oberon']));
+        app.ask(app.buildRichResponse().addSimpleResponse('Sorry! I can\'t set-up with ' + unsupport + ' Please choose difference one.').addSuggestions(['Percival', 'Mordred', 'Percival + Mordred', 'Percival + Mordred + Morgana', 'Percival + Mordred + Morgana + Oberon']));
     }
 }
 
 function unknownCharacter (app, percival, mordred, morgana, oberon) {
+    console.log('unknownCharacter');
     var tell;
     if ((percival === 1) && ((morgana === 1) || (oberon === 1))) {
         if ((morgana === 1) && (oberon === 0)) {
